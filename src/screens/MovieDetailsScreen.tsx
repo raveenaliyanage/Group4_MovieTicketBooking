@@ -3,9 +3,9 @@ import{Text, View, StyleSheet} from 'react-native';
 
 const MovieDetailsScreen  =()=>{
     return(
-        <view style={styles.container}>
+        <View style={styles.container}>
             <Text>MovieDetailsScreen</Text>
-        </view>
+        </View>
     );
 };
 

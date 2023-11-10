@@ -3,9 +3,9 @@ import{Text, View, StyleSheet} from 'react-native';
 
 const SearchScreen  =()=>{
     return(
-        <view style={styles.container}>
+        <View style={styles.container}>
             <Text>SearchScreen</Text>
-        </view>
+        </View>
     );
 };
 

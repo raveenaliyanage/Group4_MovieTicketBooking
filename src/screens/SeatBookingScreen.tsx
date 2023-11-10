@@ -3,9 +3,9 @@ import{Text, View, StyleSheet} from 'react-native';
 
 const SeatBookingScreen  =()=>{
     return(
-        <view style={styles.container}>
+        <View style={styles.container}>
             <Text>SeatBookingScreen</Text>
-        </view>
+        </View>
     );
 };
 

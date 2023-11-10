@@ -3,9 +3,9 @@ import{Text, View, StyleSheet} from 'react-native';
 
 const HomeScreen =()=>{
     return(
-        <view style={styles.container}>
+        <View style={styles.container}>
             <Text>HomeScreen</Text>
-        </view>
+        </View>
     );
 };
 
