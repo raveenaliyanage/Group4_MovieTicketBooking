@@ -12,7 +12,18 @@ const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {
     return(
-        <Tab.Navigator>
+        <Tab.Navigator
+             screenOptions={{
+        tabBarHideOnKeyboard: true,
+        headerShown: false,
+        tabBarStyle: {
+          backgroundColor: COLORS.Black,
+          borderTopWidth: 0,
+          height: SPACING.space_10 * 10,
+        },
+      }}>
+
+
             <Tab.Screen name="Home" component={HomeScreen}/>
             <Tab.Screen name="Search" component={SearchScreen}/>
             <Tab.Screen name="Ticket" component={TicketScreen}/>
