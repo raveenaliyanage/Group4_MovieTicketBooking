@@ -25,6 +25,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import { upcomingMovies,popularMovies,searchMovies } from './src/api/apicalls';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -62,6 +63,8 @@ function App(): JSX.Element {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
+
+  console.log(searchMovies('Avengers'));
 
   return (
     <SafeAreaView style={backgroundStyle}>
