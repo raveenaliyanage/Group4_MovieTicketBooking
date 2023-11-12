@@ -12,6 +12,7 @@ import{
 import { COLORS,SPACING } from '../theme/theme';
 import { upcomingMovies,nowPlayingMovies,popularMovies } from '../api/apicalls';
 import InputHeader from '../components/InputHeader';
+import CategoryHeader from '../components/CategoryHeader';
 
 const {width,height}=Dimensions.get('window');
 
@@ -66,14 +67,14 @@ const [upcomingMoviesList, setUpcomingMoviesList] = useState<any>(undefined);
 useEffect(() => {
     (async () => {
       let tempNowPlaying = await getNowPlayingMoviesList();
-      setNowPlayingMoviesList({...tempNowPlaying});
+      setNowPlayingMoviesList(tempNowPlaying.results);
 
       let tempPopular = await getPopularMoviesList();
-      setPopularMoviesList({...tempPopular});
+      setPopularMoviesList(tempPopular.results);
 
 
       let tempUpcoming = await getUpcomingMoviesList();
-      setUpcomingMoviesList({...tempUpcoming});
+      setUpcomingMoviesList(tempUpcoming.results);
     })();
 },[]);
 
@@ -82,7 +83,10 @@ useEffect(() => {
 
 const searchMoviesFunction=()=>{
     navigation.navigate('Search');
-}
+};
+
+
+
 if (
     nowPlayingMoviesList == undefined &&
     nowPlayingMoviesList == null &&
@@ -121,7 +125,9 @@ if (
         <InputHeader searchFunction={searchMoviesFunction} />
         </View>
 
-        
+        <CategoryHeader title={'Now Playing'}/>
+        <CategoryHeader title={'Popular'}/>
+        <CategoryHeader title={'Up Coming'}/>
     </ScrollView>
     );
 };
