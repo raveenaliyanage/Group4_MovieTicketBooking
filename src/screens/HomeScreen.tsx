@@ -77,7 +77,7 @@ useEffect(() => {
     })();
 },[]);
 
-console.log(nowPlayingMoviesList,popularMoviesList,upcomingMoviesList);
+
 
 
 const searchMoviesFunction=()=>{
@@ -119,8 +119,9 @@ if (
         <StatusBar hidden/>
         <View style={styles.InputHeaderContainer}>
         <InputHeader searchFunction={searchMoviesFunction} />
-        
         </View>
+
+        
     </ScrollView>
     );
 };
