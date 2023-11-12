@@ -8,11 +8,13 @@ import{
     ActivityIndicator,
     ScrollView,
     StatusBar,
+    FlatList,
 } from 'react-native';
 import { COLORS,SPACING } from '../theme/theme';
 import { upcomingMovies,nowPlayingMovies,popularMovies } from '../api/apicalls';
 import InputHeader from '../components/InputHeader';
 import CategoryHeader from '../components/CategoryHeader';
+import SubMovieCard from '../components/SubMovieCard';
 
 const {width,height}=Dimensions.get('window');
 
@@ -128,6 +130,17 @@ if (
         <CategoryHeader title={'Now Playing'}/>
         <CategoryHeader title={'Popular'}/>
         <CategoryHeader title={'Up Coming'}/>
+
+        <FlatList
+        data={upcomingMoviesList}
+        keyExtractor={(item: any) => item.id}
+        horizontal
+        contentContainerStyle={styles.containerGap36}
+        renderItem={({item, index}) => (
+          <SubMovieCard title={item.original_title}/>
+        )}
+        />
+
     </ScrollView>
     );
 };
@@ -148,7 +161,11 @@ const styles=StyleSheet.create({
     InputHeaderContainer: {
         marginHorizontal: SPACING.space_36,
         marginTop: SPACING.space_28,
-      },
+    },
+    containerGap36: {
+        gap: SPACING.space_36,
+    },
+
 
 });
 

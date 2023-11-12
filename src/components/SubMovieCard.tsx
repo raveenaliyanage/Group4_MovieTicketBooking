@@ -1,10 +1,11 @@
 import * as React from 'react';
 import{Text, View, StyleSheet} from 'react-native';
+import { COLORS } from '../theme/theme';
 
-const SubMovieCard  =()=>{
+const SubMovieCard  =(props:any)=>{
     return(
         <View style={styles.container}>
-            <Text>SubMovieCard</Text>
+            <Text style={{color:COLORS.White}}>{props.title}</Text>
         </View>
     );
 };
