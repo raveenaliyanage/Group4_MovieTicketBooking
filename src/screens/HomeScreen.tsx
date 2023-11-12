@@ -9,7 +9,7 @@ import{
     ScrollView,
     StatusBar,
 } from 'react-native';
-import { COLORS } from '../theme/theme';
+import { COLORS,SPACING } from '../theme/theme';
 import { upcomingMovies,nowPlayingMovies,popularMovies } from '../api/apicalls';
 
 const {width,height}=Dimensions.get('window');
@@ -30,6 +30,8 @@ if (
     return  <ScrollView style={styles.container}
         contentContainerStyle={styles.scrollViewContainer}>
         <StatusBar hidden/>
+        <View style={styles.InputHeaderContainer}>
+        </View>
         <View style={styles.loadingContainer}>
           <ActivityIndicator size={'large'} color={COLORS.Orange} />
         </View>
@@ -56,6 +58,10 @@ const styles=StyleSheet.create({
         flex: 1,
         alignSelf: 'center',
         justifyContent: 'center',
+    },
+    InputHeaderContainer: {
+        marginHorizontal: SPACING.space_36,
+        marginTop: SPACING.space_28,
       },
 
 });
