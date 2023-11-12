@@ -1,25 +1,63 @@
-import * as React from 'react';
-import{Text, View, StyleSheet} from 'react-native';
+import React,{useState} from 'react';
+import{
+    Text, 
+    View, 
+    StyleSheet,
+    Dimensions,
+    TouchableOpacity,
+    ActivityIndicator,
+    ScrollView,
+    StatusBar,
+} from 'react-native';
 import { COLORS } from '../theme/theme';
-import { TouchableOpacity } from 'react-native';
+import { upcomingMovies,nowPlayingMovies,popularMovies } from '../api/apicalls';
+
+const {width,height}=Dimensions.get('window');
 
 const HomeScreen =({navigation}:any)=>{
-    return(
-        <View style={styles.container}>
-            <TouchableOpacity
-            onPress={()=>{
-                navigation.push('MovieDetails');
-            }}>
-            <Text>HomeScreen</Text>
-            </TouchableOpacity>
+const [nowPlayingMoviesList, setNowPlayingMoviesList]=useState<any>(undefined);
+const [popularMoviesList, setPopularMoviesList] = useState<any>(undefined);
+const [upcomingMoviesList, setUpcomingMoviesList] = useState<any>(undefined);
+
+if (
+    nowPlayingMoviesList == undefined &&
+    nowPlayingMoviesList == null &&
+    popularMoviesList == undefined &&
+    popularMoviesList == null &&
+    upcomingMoviesList == undefined &&
+    upcomingMoviesList == null
+  ) {
+    return  <ScrollView style={styles.container}
+        contentContainerStyle={styles.scrollViewContainer}>
+        <StatusBar hidden/>
+        <View style={styles.loadingContainer}>
+          <ActivityIndicator size={'large'} color={COLORS.Orange} />
         </View>
+    </ScrollView>;
+  }
+
+
+
+
+    return(
+        <View style={styles.container}></View>
     );
 };
 
 const styles=StyleSheet.create({
     container:{
+        display:'flex',
         backgroundColor:COLORS.Black,
     },
+    scrollViewContainer: {
+        flex: 1,
+    },
+    loadingContainer: {
+        flex: 1,
+        alignSelf: 'center',
+        justifyContent: 'center',
+      },
+
 });
 
 export default HomeScreen;
