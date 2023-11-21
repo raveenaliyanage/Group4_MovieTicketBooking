@@ -33,6 +33,8 @@ interface Spacing {
   interface Color {
     Black: string;
     BlackRGB10: string;
+    primaryBlackHex: string;
+    primaryGreyHex: string;
     Orange: string;
     OrangeRGBA0: string;
     Grey: string;
@@ -48,6 +50,8 @@ interface Spacing {
   export const COLORS: Color = {
     Black: '#000000',
     BlackRGB10: 'rgba(0,0,0,0.1)',
+    primaryBlackHex: '#0C0F14',
+    primaryGreyHex: '#252A32',
     Orange: '#FF5524',
     OrangeRGBA0: 'rgba(255,85,36,0)',
     Grey: '#333333',

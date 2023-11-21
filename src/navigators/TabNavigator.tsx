@@ -7,6 +7,7 @@ import {COLORS, FONTSIZE, SPACING} from '../theme/theme';
 import CustomIcon from '../components/CustomIcon';
 import {View, StyleSheet} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import FavoritesScreen from '../screens/PaymentScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -87,6 +88,31 @@ const TabNavigator = () => {
                 },
               }}
             />
+
+<Tab.Screen name="Favorite" 
+            component={FavoritesScreen}
+            options={{
+                tabBarShowLabel: false,
+                tabBarIcon: ({focused, color, size}) => {
+                  return (
+                    <View
+                      style={[
+                        styles.activeTabBackground,
+                        focused ? {backgroundColor: COLORS.Orange} : {},
+                      ]}>
+                      <CustomIcon
+                        name="dollar"
+                        color={COLORS.White}
+                        size={FONTSIZE.size_30}
+                      />
+                    </View>
+                  );
+                },
+              }}
+            />
+
+
+
             <Tab.Screen name="User" 
             component={UserAccountScreen}
             options={{
